@@ -17,6 +17,10 @@ public class SkillsController {
                         "<h1>Skills Tracker</h1>" +
                         "<h2>Skills to Learn</h2>" +
                         "<form method = 'post' action = '/success'>" +
+
+                        "<label name='username'> Username: " +
+                        "<input type='text' name='username'> </input><br/>" +
+
                         "<label name='option1'> Your Favorite:   " +
                         "<select name ='option1' id='option1'>"  +
                         "<option id='Java' name ='option1' value='Java'>" + "Java" + "</option>" +
@@ -41,7 +45,6 @@ public class SkillsController {
                         "<option id='Python' name='option3' value='Python'>"+ "Python" + "</option>" +
                         "</select> </label>" + "<br/>" +
 
-
                         "<input type = 'submit' value = 'Choose your favorites!' />" +
                         "</form>" +
                         "</body>" +
@@ -50,11 +53,12 @@ public class SkillsController {
     }
 
     @PostMapping(value = {"/success"})
-    public static String skillsTracker(@RequestParam String option1, @RequestParam String option2, @RequestParam String option3){
+    public static String skillsTracker(@RequestParam String username, @RequestParam String option1, @RequestParam String option2, @RequestParam String option3){
             String html =
                     "<html>" +
                             "<body>" +
-                            "<h1>Skills Tracker</h1>" +
+//                            "<h1>Skills Tracker for " + username + "</h1>" +
+                            "<h1>" + username + "</h1>" +
                             "<h2>Skills to Learn</h2>" +
                             "<ol>" +
                             "<li>" + option1 + "</li>" +
